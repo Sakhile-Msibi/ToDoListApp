@@ -1,6 +1,6 @@
 export class TodoItem {
     itemId: number=0;
     itemName: string="";
-    itemDesciption: string="";
+    itemDescription: string="";
     itemStatus: boolean=false;
 }

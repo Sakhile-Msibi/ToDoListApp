@@ -1,1 +1,46 @@
-<p>login works!</p>
+<form novalidate #loginForm="ngForm" (submit)="login(loginForm)" autocomplete="off">
+    <div class="form-group">
+        <label>USERNAME</label>
+        <input
+            class="form-control form-control-lg"
+            placeholder="Username"
+            name="username"
+            #username="ngModel"
+            [(ngModel)]="service.loginData.username"
+            required
+            [class.invalid]="username.invalid && username.touched"
+        >
+        <div *ngIf="username.touched">
+            <p *ngIf="username.errors?.required">Username is required!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>PASSWORD</label>
+        <input
+            type="password"
+            class="form-control form-control-lg"
+            placeholder="Password"
+            name="password"
+            #password="ngModel"
+            [(ngModel)]="service.loginData.password"
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+            [class.invalid]="password.invalid && password.touched"
+        >
+        <div *ngIf="password.touched">
+            <p *ngIf="password.errors?.required">Password is required!</p>
+            <p *ngIf="password.errors?.pattern">
+                Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="loginForm.invalid">SUBMIT</button>
+    </div>
+    <div class="form-group">
+        <a [routerLink]="['/register']" routerLinkActive="active"><button class="btn btn-info btn-lg btn-block" type="submit">Register</button></a>
+    </div>
+    <div class="form-group">
+        <a [routerLink]="['']" routerLinkActive="active"><button class="btn btn-info btn-lg btn-block" type="submit">Home</button></a>
+    </div>
+</form>

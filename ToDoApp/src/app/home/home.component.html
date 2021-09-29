@@ -1,1 +1,32 @@
-<p>home works!</p>
+<h1>Home Page</h1>
+
+<br>
+<div *ngIf="isUserAuthenticated()" style="color:blue;">
+  <h2>
+    <app-todo-items></app-todo-items>
+  </h2>
+</div>
+
+<br>
+<ul>
+  <!-- <li>
+      <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit"><a [routerLink]="['/dashboard']" routerLinkActive="active">ToDo Item</a></button>
+    </div>
+  </li> -->
+  <li *ngIf="!isUserAuthenticated()">
+    <div class="form-group">
+      <a [routerLink]="['/login']" routerLinkActive="active"><button class="btn btn-info btn-lg btn-block" type="submit">Login</button></a>
+    </div>
+  </li>
+  <li *ngIf="!isUserAuthenticated()">
+    <div class="form-group">
+      <a [routerLink]="['/register']" routerLinkActive="active"><button class="btn btn-info btn-lg btn-block" type="submit">Register</button></a>
+    </div>
+  </li>
+  <li *ngIf="isUserAuthenticated()">
+      <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit"><a class="logout" (click)="logOut()">Logout</a></button>
+    </div>
+  </li>
+</ul>

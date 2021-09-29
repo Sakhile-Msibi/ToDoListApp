@@ -1,1 +1,55 @@
-<p>todo-item-form works!</p>
+<form novalidate #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <input
+        type="hidden"
+        name="itemId"
+        [value] = "service.todoData.itemId"
+    >
+    <div class="form-group">
+        <label>ITEM NAME</label>
+        <input
+            class="form-control form-control-lg"
+            placeholder="Item Name"
+            name="itemName"
+            #itemName="ngModel"
+            [(ngModel)]="service.todoData.itemName"
+            required
+            maxlength="50"
+            [class.invalid]="itemName.invalid && itemName.touched"
+        >
+        <div *ngIf="itemName.touched">
+            <p *ngIf="itemName.errors?.required">Item name is required!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>ITEM DESCRIPTION</label>
+        <input
+            class="form-control form-control-lg"
+            placeholder="Item Description"
+            name="itemDescription"
+            #itemDescription="ngModel"
+            [(ngModel)]="service.todoData.itemDescription"
+            required
+            maxlength="150"
+            [class.invalid]="itemDescription.invalid && itemDescription.touched"
+        >
+        <div *ngIf="itemDescription.touched">
+            <p *ngIf="itemDescription.errors?.required">Item description is required!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>ITEM STATUS</label>
+        <input
+            class="form-control form-control-lg"
+            type="checkbox"
+            name="itemStatus"
+            #itemStatus="ngModel"
+            [(ngModel)]="service.todoData.itemStatus"
+            [ngModelOptions]="{standalone: true}"
+            required
+        >
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>

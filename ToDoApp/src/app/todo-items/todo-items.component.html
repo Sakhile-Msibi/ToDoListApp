@@ -1,1 +1,33 @@
-<p>todo-items works!</p>
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">ToDo Item Register</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-todo-item-form></app-todo-item-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Description</th>
+                    <th>Item Status</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list">
+                    <td (click)="populateForm(pd)">{{ pd.itemName }}</td>
+                    <td (click)="populateForm(pd)">{{ pd.itemDescription }}</td>
+                    <td (click)="populateForm(pd)">{{ pd.itemStatus }}</td>
+                    <td>
+                        <i class="fa fa-trash-o fa-lg text-danger" (click)="onDelete(pd.itemId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

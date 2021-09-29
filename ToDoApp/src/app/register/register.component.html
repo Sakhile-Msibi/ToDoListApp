@@ -1,1 +1,63 @@
-<p>register works!</p>
+<form novalidate #registerForm="ngForm" (submit)="register(registerForm)" autocomplete="off">
+    <div class="form-group">
+        <label>USERNAME</label>
+        <input
+            class="form-control form-control-lg"
+            placeholder="Username"
+            name="username"
+            #username="ngModel"
+            [(ngModel)]="service.registerData.username"
+            required
+            [class.invalid]="username.invalid && username.touched"
+        >
+        <div *ngIf="username.touched">
+            <p *ngIf="username.errors?.required">Username is required!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>EMAIL</label>
+        <input
+            class="form-control form-control-lg"
+            placeholder="Example@sakhile.com"
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="service.registerData.email"
+            required
+            pattern="^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*@((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$" 
+            [class.invalid]="email.invalid && email.touched"
+        >
+        <div *ngIf="email.touched">
+            <p *ngIf="email.errors?.required">Email is required!</p>
+            <p *ngIf="email.errors?.pattern">You have entered an invalid email address!!!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>PASSWORD</label>
+        <input
+            type="password"
+            class="form-control form-control-lg"
+            placeholder="Password"
+            name="password"
+            #password="ngModel"
+            [(ngModel)]="service.registerData.password"
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+            [class.invalid]="password.invalid && password.touched"
+        >
+        <div *ngIf="password.touched">
+            <p *ngIf="password.errors?.required">Password is required!</p>
+            <p *ngIf="password.errors?.pattern">
+                Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="registerForm.invalid">SUBMIT</button>
+    </div>
+    <div class="form-group">
+        <a [routerLink]="['/login']" routerLinkActive="active"><button class="btn btn-info btn-lg btn-block" type="submit">Login</button></a>
+    </div>
+    <div class="form-group">
+        <a [routerLink]="['']" routerLinkActive="active"><button class="btn btn-info btn-lg btn-block" type="submit">Home</button></a>
+    </div>
+</form>
