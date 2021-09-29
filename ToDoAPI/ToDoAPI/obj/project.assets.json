@@ -8133,11 +8133,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\themb\\Sakhile\\Angular_course\\ToDo-WebAPI\\ToDoRepo\\ToDoAPI\\ToDoAPI.csproj",
+      "projectUniqueName": "C:\\Users\\themb\\Sakhile\\Angular_course\\ToDo-WebAPI\\ToDoApp\\ToDoAPI\\ToDoAPI\\ToDoAPI.csproj",
       "projectName": "ToDoAPI",
-      "projectPath": "C:\\Users\\themb\\Sakhile\\Angular_course\\ToDo-WebAPI\\ToDoRepo\\ToDoAPI\\ToDoAPI.csproj",
+      "projectPath": "C:\\Users\\themb\\Sakhile\\Angular_course\\ToDo-WebAPI\\ToDoApp\\ToDoAPI\\ToDoAPI\\ToDoAPI.csproj",
       "packagesPath": "C:\\Users\\themb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\themb\\Sakhile\\Angular_course\\ToDo-WebAPI\\ToDoRepo\\ToDoAPI\\obj\\",
+      "outputPath": "C:\\Users\\themb\\Sakhile\\Angular_course\\ToDo-WebAPI\\ToDoApp\\ToDoAPI\\ToDoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\themb\\AppData\\Roaming\\NuGet\\NuGet.Config",
